@@ -65,8 +65,8 @@ export class HomePageComponent implements OnInit {
           this.statusLogin = true;
           this.statusMsg = 'Connect Admin';
           sessionStorage.setItem('connect', 'ok');
-          sessionStorage.setItem('espace', 'Doctor');
-          sessionStorage.setItem('idDoctor', data+"");
+          sessionStorage.setItem('espace', 'Admin');
+          sessionStorage.setItem('id', data+"");
         }
       });
     }else if (this.espace === 'Doctor'){

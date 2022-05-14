@@ -34,7 +34,8 @@
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  padding: 0rem 1rem;
+  padding: 0rem;
+  padding-right: 1rem;
 }
 
 .sidebar-menu {
@@ -42,7 +43,7 @@
 }
 
 .sidebar li {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .sidebar-menu ul li a{
   cursor: pointer;
@@ -503,6 +504,9 @@ tbody tr:nth-child(even) {
 }
 .color-bleu{
   color: #A4DBFA;
+}
+.color-bleu-bg{
+     color: #2B3D8F;
 }
 .color-orange{
   color: #F07E2E;
