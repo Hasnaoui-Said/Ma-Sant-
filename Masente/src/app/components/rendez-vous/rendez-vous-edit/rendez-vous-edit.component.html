@@ -1,0 +1,39 @@
+
+<nav class="container navbar bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+    <li>
+      <!--<a href="javascript:onNewDoctor()" (click)="onNewDoctor()">Ajouter Docteur</a>-->
+    </li>
+  </ul>
+  <ul class="navbar navbar-nav">
+    <li>
+
+    </li>
+  </ul>
+</nav>
+
+<div class="container" *ngIf='rendezVousFormGroup'>
+  <form [formGroup]='rendezVousFormGroup'>
+    <div class="form-group">
+      <label hidden>IdDoctor</label>
+      <input hidden type="text" class="form-control" formControlName="doctorId">
+    </div>
+    <div class="form-group">
+      <label hidden>IdPatient</label>
+      <input hidden type="text" class="form-control" formControlName="patientId">
+    </div>
+    <div class="form-group">
+      <label hidden>Id</label>
+      <input hidden type="text" class="form-control" formControlName="id">
+    </div>
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" class="form-control" formControlName="date">
+    </div>
+    <div class="form-group">
+      <label>Date Planification</label>
+      <input type="date" class="form-control" formControlName="datePlanification">
+    </div><br>
+    <button class="btn btn-success" (click)="onUpdateRendezVous()">Save</button>
+  </form>
+</div>

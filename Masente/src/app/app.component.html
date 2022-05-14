@@ -1,0 +1,85 @@
+<!--<app-nav-bar></app-nav-bar>
+<router-outlet></router-outlet>-->
+<app-home-page *ngIf="!isLogin()"></app-home-page>
+<section *ngIf="isLogin()" class="section">
+
+  <input type="checkbox" id="sidebar-toggle" xmlns="http://www.w3.org/1999/html">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3 class="brand">
+        <span class="ti-unlink"></span>
+        <span>Ma Santé</span>
+      </h3>
+      <label for="sidebar-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list"
+             viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </label>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a routerLink="/dasshoard" routerLinkActive="active" title="dashboard">
+            <img src="assets/images/dashboard.png" width="27">
+
+            <span>dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/rendezVousPatient" routerLinkActive="active" title="dashboard">
+            <img src="assets/images/compte-rendu.png" width="27">
+            <span>Mes rendez-vous</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/patientDoctors" routerLinkActive="active" title="dashboard">
+          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pie-chart" viewBox="0 0 16 16"><path d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793V1.018zm1 0V7.5h6.482A7.001 7.001 0 0 0 8.5 1.018zM14.982 8.5H8.207l-4.79 4.79A7 7 0 0 0 14.982 8.5zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+          </svg></span>
+            <span>patient Doctors</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/editRendezVous" routerLinkActive="active" title="dashboard">
+          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pie-chart" viewBox="0 0 16 16"><path d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793V1.018zm1 0V7.5h6.482A7.001 7.001 0 0 0 8.5 1.018zM14.982 8.5H8.207l-4.79 4.79A7 7 0 0 0 14.982 8.5zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+          </svg></span>
+            <span>Action1</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/editRendezVous" routerLinkActive="active" title="dashboard">
+          <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pie-chart" viewBox="0 0 16 16"><path d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793V1.018zm1 0V7.5h6.482A7.001 7.001 0 0 0 8.5 1.018zM14.982 8.5H8.207l-4.79 4.79A7 7 0 0 0 14.982 8.5zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+          </svg></span>
+            <span>Action2</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/" routerLinkActive="active" title="LogOut" (click)="logOut()">
+            <img src="assets/images/logout.png" width="27">
+            <span>LogOut </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <header class="header-navbar d-flex justify-content-end">
+      <div class="">
+        <a routerLink="/" routerLinkActive="active"  class=" text-white">
+          <img class="mx-2" src="./../assets/images/profile.png" width="37">
+          <span>{{user()}}</span>
+        </a>
+      </div>
+    </header>
+
+
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+</section>
+<!--<router-outlet></router-outlet>-->
+

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-content-center m-2" >
+    <h3 class="">lists</h3>
+    <div *ngIf='searchForm' class="d-flex justify-content-between align-content-center">
+      <form class="form-inline" [formGroup]='searchForm'>
+        <div class="input-group d-flex justify-content-between align-content-center">
+          <input type="search" formControlName="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <button type="button" (click)="onSearch()" class="btn bleu-bg orange-hover">search</button>
+        </div>
+      </form>
+    </div>
+    <a class="nav-link bleu-bg orange-hover py-0" href="javascript:onNewPatient()" (click)="onNewPatient()">
+      <img src="./assets/images/add.png" width="35">
+      <span>Add Patient</span>
+    </a>
+  </div>
+  <ng-container *ngIf="doctors$ | async as result" [ngSwitch]="result.dataState">
+    <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+      Loading .....
+    </ng-container>
+
+    <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+      <div class="alert alert-danger">
+        {{ result.errorMessage }}
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+
+      <div class="table-responsive custom-table-responsive">
+
+        <table class="table custom-table">
+          <thead>
+          <tr>
+
+            <th scope="col" class="">
+              <label class="control control--checkbox mx-3">
+                <input type="checkbox"  class="js-check-all"/>
+                <div class="control__indicator"></div>
+              </label>
+            </th>
+
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">phone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Specialite</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let d of result.data">
+          <tr class="spacer"><td colspan="100"></td></tr>
+          <tr scope="row">
+
+            <th scope="col" class="">
+              <label class="control control--checkbox mx-3">
+                <input type="checkbox"  class="js-check-all"/>
+                <div class="control__indicator"></div>
+              </label>
+            </th>
+            <td hidden>{{d.id}}</td>
+            <td>{{d.nom}}</td>
+            <td>{{d.preNom}}</td>
+            <td>{{d.numTel}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.specialite}}</td>
+            <td *ngIf="isConnect()">
+              <a href="javascript:onNewRendezVous(d)" (click)="onNewRendezVous(d)">Prendre Rendez-Vous</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+

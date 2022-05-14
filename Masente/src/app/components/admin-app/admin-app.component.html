@@ -1,0 +1,19 @@
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap" *ngIf='adminFormGroup'>
+  <h2>Login</h2>
+  <form id="login-form" [formGroup]='adminFormGroup' method="post">
+    <p>
+      <input type="email" id="email" name="email" formControlName="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="text" id="pswd" name="pswd" formControlName="pswd" placeholder="pswd" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="submit" id="login" value="Login" (click)="onLoginAdmin()">
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <!--<p>Not a member? <a href="#">Create Account</a><p>-->
+  </div><!--create-account-wrap-->
+</div><!--login-form-wrap-->
+<!-- partial -->

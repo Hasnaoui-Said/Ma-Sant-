@@ -1,0 +1,28 @@
+.heros-back {
+  background: #F07E2E;
+  color: #000000;
+}
+.orange-hover:hover {
+   background: #F07E2E;
+   color: #ffffff;
+ }
+.bleu-bg{
+  background: #A4DBFA;
+}
+.orange-bg{
+  background: #F07E2E;
+}
+.color-bleu{
+  color: #A4DBFA;
+}
+.color-orange{
+  color: #F07E2E;
+}
+.color-black{
+  color: #000000;
+}
+.color-white{
+  color: #ffffff;
+}
+
+

@@ -1,0 +1,70 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "nom": "test1",
+      "preNom": "test1",
+      "dateNaissance": "1991-10-05",
+      "numTel": "0111111111",
+      "typeSexe": "M",
+      "email": "test1@gmail.com",
+      "pswd": "test1",
+      "specialite": "cardio"
+    },
+    {
+      "id": 2,
+      "nom": "test2",
+      "preNom": "test2",
+      "dateNaissance": "1980-03-22",
+      "numTel": "0222222222",
+      "typeSexe": "M",
+      "email": "test2@gmail.com",
+      "pswd": "test2",
+      "specialite": "cardio"
+    },
+    {
+      "id": 3,
+      "nom": "test3",
+      "preNom": "test3",
+      "dateNaissance": "1985-11-05",
+      "numTel": "0333333333",
+      "typeSexe": "M",
+      "email": "test3@gmail.com",
+      "pswd": "test3",
+      "specialite": "cardio"
+    },
+    {
+      "id": 4,
+      "nom": "test4",
+      "preNom": "test4",
+      "dateNaissance": "1990-05-14",
+      "numTel": "0444444444",
+      "typeSexe": "M",
+      "email": "test4@gmail.com",
+      "pswd": "test4",
+      "specialite": "cardio"
+    },
+    {
+      "id": 5,
+      "nom": "test5",
+      "preNom": "test5",
+      "dateNaissance": "2022-05-14",
+      "numTel": "0555555555",
+      "typeSexe": "M",
+      "email": "test5@gmail.com",
+      "pswd": "test5",
+      "specialite": "cardio"
+    },
+    {
+      "nom": "zzz",
+      "preNom": "zzzz",
+      "dateNaissance": "2022-05-18",
+      "numTel": "zzz",
+      "typeSexe": "zz",
+      "email": "zzz",
+      "pswd": "zzz",
+      "specialite": "zz",
+      "id": 6
+    }
+  ]
+}
