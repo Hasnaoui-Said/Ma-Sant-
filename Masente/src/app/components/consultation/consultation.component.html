@@ -32,6 +32,9 @@
         <tr>
           <th scope="col">id</th>
           <th scope="col">dateConsultation</th>
+          <th scope="col">Rapport</th>
+          <th scope="col">Id Rendez-vous</th>
+          <th scope="col">Description</th>
           <th scope="col" colspan="2">Actions</th>
         </tr>
         </thead>
@@ -39,6 +42,9 @@
         <tr *ngFor="let c of result.data">
           <td>{{c.id}}</td>
           <td>{{c.dateConsultation}}</td>
+          <td>{{c.rapport}}</td>
+          <td>{{c.idRendezVous}}</td>
+          <td>{{c.description}}</td>
           <td>
             <button class="btn btn-danger" (click)="onDelete(c)">
               delete
