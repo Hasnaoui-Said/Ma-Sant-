@@ -35,6 +35,7 @@ const routes: Routes = [
   { path: "loginPatient", component:PatientLoginComponent },
   { path: "consultations", component:ConsultationComponent },
   { path: "newConsultation/:id", component:ConsultationAddComponent },
+  { path: "newConsultation", component:ConsultationAddComponent },
   { path: "editConsultation/:id", component:ConsultationEditComponent },
   { path: "rendezVous", component:RendezVousComponent },
   { path: "newRendezVous/:idDoctor", component:RendezVousAddComponent },

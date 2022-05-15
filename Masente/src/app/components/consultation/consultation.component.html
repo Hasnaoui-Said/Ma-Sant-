@@ -1,22 +1,17 @@
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
-  <ul class="navbar navbar-nav">
-    <li>
-      <button (click)="onNewConsultation()" class="btn btn-sm btn-outline-info ml-2">New</button>
-    </li>
-  </ul>
-  <ul class="navbar navbar-nav ml-auto">
-    <li>
+<div class="mt-5 mb-3 d-flex justify-content-around align-content-center">
+    <div>
+      <a  routerLink="/newConsultation" routerLinkActive="active"
+          class="btn btn-sm btn-outline-info ml-2">New Consultation</a>
+    </div>
       <form lass="form-inline" #f="ngForm" (ngSubmit)="onSearch(f.value)">
-        <div class="form-group">
+        <div class="form-group d-flex">
           <input ngModel name="keyword" class="form-control" type="text">
           <button class="btn btn-outline-info ml-2">
             <span class="fa fa-search"></span>
           </button>
         </div>
       </form>
-    </li>
-  </ul>
-</nav>
+</div>
 <div class="container">
   <ng-container *ngIf="consultations$ | async as result" [ngSwitch]="result.dataState" >
     <ng-container *ngSwitchCase="DataStateEnum.LOADING">
@@ -30,23 +25,34 @@
     </ng-container>
 
     <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+      <div class="table-responsive">
+
       <table class="table">
+        <thead>
         <tr>
-          <th>id</th><th>dateConsultation</th>
+          <th scope="col">id</th>
+          <th scope="col">dateConsultation</th>
+          <th scope="col" colspan="2">Actions</th>
         </tr>
+        </thead>
+        <tbody>
         <tr *ngFor="let c of result.data">
           <td>{{c.id}}</td>
           <td>{{c.dateConsultation}}</td>
           <td>
             <button class="btn btn-danger" (click)="onDelete(c)">
-              <span class="fa fa-trash-o"></span>
+              delete
             </button>
-            <button class="btn btn-danger" (click)="onEdit(c)">
-              <span class="fa fa-edit"></span>
+          </td>
+          <td>
+            <button class="btn btn-info" (click)="onEdit(c)">
+              edit
             </button>
           </td>
         </tr>
+        </tbody>
       </table>
+      </div>
     </ng-container>
   </ng-container>
 </div>

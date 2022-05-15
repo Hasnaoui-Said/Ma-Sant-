@@ -31,26 +31,41 @@
   </ng-container>
 
   <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+    <div class="table-responsive">
     <table class="table">
-      <tr>
-        <th hidden>id</th><th>Nom</th><th>Prenom</th><th>Date Naissance</th>
-        <th>Num Tel</th><th>Type Sexe</th><th>Email</th><th>Specialite</th>
-      </tr>
-      <tr *ngFor="let d of result.data">
-        <td hidden>{{d.id}}</td>
-        <td>{{d.nom}}</td>
-        <td>{{d.preNom}}</td>
-        <td>{{d.dateNaissance}}</td>
-        <td>{{d.numTel}}</td>
-        <td>{{d.typeSexe}}</td>
-        <td>{{d.email}}</td>
-        <td>{{d.specialite}}</td>
-        <td>
-          <a href="javascript:onDelete(d)" (click)="onDelete(d)">Supprimer</a>
-          <a href="javascript:onEdit(d)" (click)="onEdit(d)">Modifier</a>
-        </td>
-      </tr>
+      <thead>
+        <tr>
+          <th scope="col" hidden>id</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Date Naissance</th>
+          <th scope="col">Num Tel</th>
+          <th scope="col">Type Sexe</th>
+          <th scope="col">Email</th>
+          <th scope="col">Specialite</th>
+          <th scope="col" colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let d of result.data">
+            <td hidden>{{d.id}}</td>
+            <td>{{d.nom}}</td>
+            <td>{{d.preNom}}</td>
+            <td>{{d.dateNaissance}}</td>
+            <td>{{d.numTel}}</td>
+            <td>{{d.typeSexe}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.specialite}}</td>
+            <td>
+              <a href="javascript:onDelete(d)" (click)="onDelete(d)">Supprimer</a>
+            </td>
+            <td>
+              <a href="javascript:onEdit(d)" (click)="onEdit(d)">Modifier</a>
+            </td>
+          </tr>
+      </tbody>
     </table>
+    </div>
   </ng-container>
 </ng-container>
 </div>
