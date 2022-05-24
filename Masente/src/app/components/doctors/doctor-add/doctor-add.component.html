@@ -1,29 +1,39 @@
 
 <div class="container mt-3 mb-3" *ngIf='doctorFormGroup'>
-  <form [formGroup]='doctorFormGroup' method="post" class="w-75 m-auto">
-    <div class="form-group">
-      <label>Nom</label>
-      <input type="text" class="form-control" formControlName="nom"
-        [ngClass]="{'is-invalid':submitted && doctorFormGroup.controls['nom'].errors}">
-      <div *ngIf="submitted && doctorFormGroup.controls['nom'].errors" class="invalid-feedback">
-        <div *ngIf="submitted && doctorFormGroup.controls['nom'].errors['required']">Name is Required</div>
+  <form [formGroup]='doctorFormGroup' method="post" class="w-75 card m-3 p-2 m-auto">
+    <h3 class="text-center my-3">Add Doctor:</h3>
+    <div class="form-group m-2 row">
+      <label class="col-sm-2 col-form-label">Nom</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="nom"
+               [ngClass]="{'is-invalid':submitted && doctorFormGroup.controls['nom'].errors}">
+        <div *ngIf="submitted && doctorFormGroup.controls['nom'].errors" class="invalid-feedback">
+          <div *ngIf="submitted && doctorFormGroup.controls['nom'].errors['required']">Name is Required</div>
+        </div>
       </div>
     </div>
-    <div class="form-group">
-      <label>Prenom</label>
+    <div class="form-group m-2 row">
+      <label class="col-sm-2 col-form-label">Prenom</label>
+      <div class="col-sm-10">
       <input type="text" class="form-control" formControlName="preNom">
     </div>
-    <div class="form-group">
-      <label>Date Naissance</label>
+    </div>
+    <div class="form-group m-2 row">
+      <label class="col-sm-2 col-form-label">Date Naissance</label>
+      <div class="col-sm-10">
       <input type="date" class="form-control" formControlName="dateNaissance">
     </div>
-    <div class="form-group">
-      <label>Num Tel</label>
-      <input type="text" class="form-control" formControlName="numTel">
     </div>
-    <div class="form-group">
-      <label>Type Sexe</label>
+    <div class="form-group m-2 row">
+      <label class="col-sm-2 col-form-label">Num Tel</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="numTel">
+      </div>
+    </div>
+    <div class="form-group m-2 row">
+      <label class="col-sm-2 col-form-label">Type Sexe</label>
       <!--<input type="text" class="form-control" formControlName="typeSexe">-->
+      <div class="col-sm-10">
       <div class="form-group d-flex gap-2">
         <div class="form-check">
           <input class="form-check-input" value="Masculin" type="radio" formControlName="typeSexe" name="flexRadioDefault" id="flexRadioDefault1">
@@ -38,24 +48,32 @@
           </label>
         </div>
       </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label>Email</label>
+    <div class="form-group m-2 row">
+      <label class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
       <input type="text" class="form-control" formControlName="email">
     </div>
-    <div class="form-group">
-      <label>Password</label>
+    </div>
+    <div class="form-group m-2 row">
+      <label class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
       <input type="password" class="form-control" formControlName="pswd">
     </div>
-    <div class="form-group">
-      <label>Specialite</label>
-      <select class="form-select" formControlName="specialite">
-        <option value="specialite1">specialite1</option>
-        <option value="specialite2">specialite2</option>
-        <option value="specialite3">specialite3</option>
-      </select>
     </div>
-    <br>
-    <button class="btn btn-success" (click)="onSaveDoctor()">Save</button>
+    <div class="form-group m-2 row">
+      <label class="col-sm-2 col-form-label">Specialite</label>
+      <div class="col-sm-10">
+        <select class="form-select" formControlName="specialite">
+          <option value="specialite1">specialite1</option>
+          <option value="specialite2">specialite2</option>
+          <option value="specialite3">specialite3</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group m-2 text-end">
+      <button class="btn btn-success" (click)="onSaveDoctor()">Save</button>
+    </div>
   </form>
 </div>

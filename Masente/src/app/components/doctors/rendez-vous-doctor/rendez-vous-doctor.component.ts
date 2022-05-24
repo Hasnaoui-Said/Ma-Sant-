@@ -30,7 +30,7 @@ export class RendezVousDoctorComponent implements OnInit {
   }
 
   onGetRendezVousDoctor() {
-          this.idD=sessionStorage.getItem('idDoctor');
+          this.idD= sessionStorage.getItem('id');
               this.rendezVous$=this.rendezVousService.getRendezVousDoctor(this.idD).pipe(
                   map(data=>{
                     return ({dataState:DataStateEnum.LOADED, data:data})

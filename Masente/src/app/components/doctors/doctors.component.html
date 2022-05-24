@@ -1,9 +1,9 @@
 
 
-<nav class="container navbar bg-light navbar-light">
+<div class="container  navbar bg-light navbar-light">
   <ul class="navbar navbar-nav">
     <li>
-      <a href="javascript:onNewDoctor()" (click)="onNewDoctor()">Ajouter Docteur</a>
+      <a routerLink="/newDoctor" routerLinkActive="active" class="btn btn-info">Add Doctor</a>
     </li>
   </ul>
   <ul class="navbar navbar-nav">
@@ -16,7 +16,7 @@
       </form>
     </li>
   </ul>
-</nav>
+</div>
 
 <div class="container">
 <ng-container *ngIf="doctors$ | async as result" [ngSwitch]="result.dataState" >
@@ -57,10 +57,10 @@
             <td>{{d.email}}</td>
             <td>{{d.specialite}}</td>
             <td>
-              <a href="javascript:onDelete(d)" (click)="onDelete(d)">Supprimer</a>
+              <a href="javascript:onDelete(d)" class="btn btn-danger" (click)="onDelete(d)">Delete</a>
             </td>
             <td>
-              <a href="javascript:onEdit(d)" (click)="onEdit(d)">Modifier</a>
+              <a href="javascript:onEdit(d)" class="btn btn-warning" (click)="onEdit(d)">Update</a>
             </td>
           </tr>
       </tbody>

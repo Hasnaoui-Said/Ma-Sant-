@@ -49,7 +49,7 @@ export class HomePageComponent implements OnInit {
         }else{
           sessionStorage.setItem('connect', 'ok');
           sessionStorage.setItem('espace', 'patient');
-          sessionStorage.setItem('id', data.id+"");
+          sessionStorage.setItem('idPatient', data.id+"");
           //this.statusMsg = 'Connect Patients '+ this.traitement.islogin();
           //this.router.navigate(['home']);
         }
@@ -79,7 +79,7 @@ export class HomePageComponent implements OnInit {
           this.statusMsg = 'Connect Doctor';
           sessionStorage.setItem('connect', 'ok');
           sessionStorage.setItem('espace', 'Doctor');
-          sessionStorage.setItem('id', data.id + "");
+          sessionStorage.setItem('idDoctor', data.id + "");
           //this.router.navigate(['home']);
         }
       });
