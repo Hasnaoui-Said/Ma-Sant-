@@ -9,7 +9,7 @@
         </div>
       </form>
     </div>
-    <a class="nav-link bleu-bg orange-hover py-0" href="javascript:onNewPatient()" (click)="onNewPatient()">
+    <a *ngIf="user() == 'doctor'" class="nav-link bleu-bg orange-hover py-0" href="javascript:onNewPatient()" (click)="onNewPatient()">
       <img src="./assets/images/add.png" width="35">
       <span>Add Patient</span>
     </a>

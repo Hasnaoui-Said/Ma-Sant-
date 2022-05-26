@@ -68,7 +68,7 @@
             </div>
             <div class="form-group mb-3">
               <label class="label">Password</label>
-              <input type="text" id="pswd" name="pswd" formControlName="pswd" class="form-control" placeholder="Password" required>
+              <input type="password" id="pswd" name="pswd" formControlName="pswd" class="form-control" placeholder="Password" required>
             </div>
             <div class="form-group">
               <button (click)="onLogin()" type="submit" class="form-control btn bleu-bg orange-hover rounded submit px-3">
@@ -81,7 +81,11 @@
               </div>
             </div>
           </form>
-          <p class="text-center">Not a member? <a class="color-orange fs-4" href="#signup">Sign Up</a></p>
+          <p class="d-flex justify-content-center" [ngClass]="{
+                        ' d-flex': espace == 'Patients',
+                        ' d-none': espace != 'Patients'
+                    }"
+          >Not a member? <button class="color-orange fs-5" (click)="isSignup()">Sign Up</button></p>
         </div>
       </article>
       <article class="col-xl-5 col-md-12">
@@ -91,4 +95,47 @@
   </section>
 </div>
 
+<div class="signup p-3" *ngIf='patientFormGroup && signup == true'>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card">
+          <div class="row">
+            <img (click)="isNotSignup()" class="col-sm-12 col-md-6" src="./../../../assets/images/704-24.jpg" width="82" height="82" alt="logo">
+            <h2 class="card-title text-center col-sm-12 col-md-6">Sign Up</h2>
+          </div>
+          <div class="card-body py-md-4">
+            <form [formGroup]='patientFormGroup' method="post">
+              <div class="form-group my-3">
+                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="nom">
+              </div>
+              <div class="form-group my-3">
+                <input type="text" class="form-control" id="prenom" placeholder="prenom" formControlName="preNom">
+              </div>
+              <div class="form-group my-3">
+                <input type="date" class="form-control" id="dateNaissance" placeholder="date naissance" formControlName="dateNaissance">
+              </div>
+              <div class="form-group my-3">
+                <input type="text" class="form-control" id="numTel" placeholder="numTel" formControlName="numTel">
+              </div>
+              <div class="form-group my-3">
+                <input type="text" class="form-control" id="typeSexe" placeholder="typeSexe"  formControlName="typeSexe">
+              </div>
+              <div class="form-group my-3">
+                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+              </div>
+              <div class="form-group my-3">
+                <input type="password" class="form-control" id="password" placeholder="Password" formControlName="pswd">
+              </div>
+              <div class="d-flex my-3 flex-row align-items-center justify-content-between">
+                <a href="#" (click)="isNotSignup()">Login</a>
+                <button class="btn btn-primary" (click)="onSavePatient()">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

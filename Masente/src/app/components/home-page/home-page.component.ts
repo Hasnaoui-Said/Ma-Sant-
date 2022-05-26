@@ -23,7 +23,20 @@ export class HomePageComponent implements OnInit {
     this.statusLogin = false;
   }
 
+  patientFormGroup?:FormGroup;
+  submittedSu:boolean=false;
+  signup: Boolean = false;
 
+
+
+  onSavePatient() {
+    this.submittedSu=true;
+    if(this.patientFormGroup?.invalid) return;
+    this.patientsService.save(this.patientFormGroup?.value).subscribe(data=>{
+      alert("Patient ajouté avec succès");
+    });
+    this.signup = false;
+  }
   constructor(private fb:FormBuilder,
               private adminService:AdminService,
               private router: Router,
@@ -32,6 +45,15 @@ export class HomePageComponent implements OnInit {
               private doctorsService:DoctorsService) { }
 
   ngOnInit(): void {
+    this.patientFormGroup=this.fb.group({
+      nom:["",Validators.required],
+      preNom:["",Validators.required],
+      dateNaissance:["",Validators.required],
+      numTel:["",Validators.required],
+      typeSexe:["",Validators.required],
+      email:["",Validators.required],
+      pswd:["",Validators.required],
+    });
     this.frGroup=this.fb.group({
       email:["",Validators.required],
       pswd:["",Validators.required]
@@ -107,5 +129,12 @@ export class HomePageComponent implements OnInit {
   close() {
     this.openModale = false;
     return this.openModale;
+  }
+
+  isSignup() {
+    this.signup = true;
+  }
+  isNotSignup() {
+    this.signup = false;
   }
 }

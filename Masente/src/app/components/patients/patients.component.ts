@@ -69,4 +69,7 @@ export class PatientsComponent implements OnInit {
          return false;
     }
 
+  user() {
+    return sessionStorage.getItem('espace');
+  }
 }
