@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit {
   espace: string = "";
   statusMsg: string = "";
   statusLogin: boolean = false;
+  openModale: boolean = false;
   frGroup?:FormGroup;
   submitted:boolean=false;
   loginAs(as :string){
@@ -99,4 +100,12 @@ export class HomePageComponent implements OnInit {
     sessionStorage.removeItem('patientConnect')
   }
 
+  open() {
+    this.openModale = true;
+    return this.openModale;
+  }
+  close() {
+    this.openModale = false;
+    return this.openModale;
+  }
 }

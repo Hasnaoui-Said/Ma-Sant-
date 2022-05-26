@@ -76,4 +76,9 @@ export class RendezVousPatientComponent implements OnInit {
       onEdit(r: rendezVous) {
           this.router.navigateByUrl("/editRendezVous/"+r.id)
       }
+
+
+  userId() {
+    return sessionStorage.getItem('idPatient');
+  }
 }

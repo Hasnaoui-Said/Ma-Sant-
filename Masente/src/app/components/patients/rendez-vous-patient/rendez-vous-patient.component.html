@@ -25,9 +25,10 @@
             </label>
           </th>
 
-          <th scope="col">Id</th>
+          <th scope="col">Id {{userId()}}</th>
           <th scope="col">Date</th>
           <th scope="col">Date planification</th>
+          <th scope="col">id Doctor</th>
           <th scope="col" colspan="2">Actions</th>
         </tr>
         </thead>
@@ -35,7 +36,6 @@
         <tr class="spacer"><td colspan="100"></td></tr>
         <tr class="spacer"><td colspan="100"></td></tr>
         <tr scope="row">
-
           <th scope="col" class="">
             <label class="control control--checkbox mx-3">
               <input type="checkbox"  class="js-check-all"/>
@@ -43,12 +43,11 @@
             </label>
           </th>
           <td class="fw-bold">
-            {{r.id}}
+            {{r.id}} pId={{r.patientId}}
           </td>
           <td><div class="">{{r.date}}</div></td>
-          <td class="text-black">
-            {{r.datePlanification}}
-          </td>
+          <td class="text-black">{{r.datePlanification}}</td>
+          <td class="text-black">{{r.doctorId}}</td>
           <td>
             <a class="mx-2" href="javascript:onDelete(r)" (click)="onDelete(r)">
               <img src="./../../../../assets/images/trash.png" width="40" alt="trash">

@@ -1,6 +1,6 @@
-<!--<app-nav-bar></app-nav-bar>
-<router-outlet></router-outlet>-->
-<app-home-page *ngIf="!isLogin()"></app-home-page>
+
+<app-home-page  *ngIf="!isLogin()"></app-home-page>
+
 <section *ngIf="isLogin()" class="section">
 
   <input type="checkbox" id="sidebar-toggle" xmlns="http://www.w3.org/1999/html">
@@ -32,25 +32,25 @@
             <span>Mes rendez-vous</span>
           </a>
         </li>
-        <li>
+        <li *ngIf="user() != 'patient'">
           <a routerLink="/patientDoctors" routerLinkActive="active" title="dashboard">
             <img src="assets/images/patient.png" width="27">
             <span>patient Doctors</span>
           </a>
         </li>
-        <li>
+        <li *ngIf="user() == 'admin'">
           <a routerLink="/doctors" routerLinkActive="active" title="dashboard">
             <img src="assets/images/doctor.png" width="27">
             <span>Doctors</span>
           </a>
         </li>
-        <li>
+        <li *ngIf="user() != 'patient'">
           <a routerLink="/rendezVousDoctors" routerLinkActive="active" title="dashboard">
             <img src="assets/images/appointment.png" width="27">
             <span>Appointment</span>
           </a>
         </li>
-        <li>
+        <li  *ngIf="user() != 'patient'">
           <a routerLink="/consultations" routerLinkActive="active" title="dashboard">
             <img src="assets/images/consultation.png" width="27">
             <span>Consultations</span>
