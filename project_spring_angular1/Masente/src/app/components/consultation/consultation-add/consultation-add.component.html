@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <h1 class="navbar-brand">Ma santé</h1>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="rendezVousDoctors">Rendez-Vous</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav class="container navbar bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+    <li>
+
+    </li>
+  </ul>
+  <ul class="navbar navbar-nav">
+    <li>
+
+    </li>
+  </ul>
+</nav>
+
+<div class="container" *ngIf='consultationFormGroup'>
+  <form [formGroup]='consultationFormGroup' method="post">
+    <div class="form-group">
+      <label hidden>Id</label>
+      <input hidden type="text" class="form-control" formControlName="rendezVousId">
+    </div>
+    <div class="form-group">
+      <label>Date Consultation</label>
+      <input type="date" class="form-control" formControlName="dateConsultation">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea rows = "5" cols = "10" class="form-control" formControlName="description"></textarea>
+    </div><br>
+    <button class="btn btn-success" (click)="onSaveConsultation()">Save</button>
+  </form>
+</div>

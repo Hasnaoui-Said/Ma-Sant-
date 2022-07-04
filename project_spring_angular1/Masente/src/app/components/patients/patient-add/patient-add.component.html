@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <h1 class="navbar-brand">Ma santé</h1>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="patientDoctors">Docteurs</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav class="container navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+
+  </ul>
+  <ul class="navbar navbar-nav">
+    <li >
+
+    </li>
+  </ul>
+</nav>
+
+<div class="container" *ngIf='patientFormGroup'>
+  <form [formGroup]='patientFormGroup' method="post">
+    <div class="form-group">
+      <label>Nom</label>
+      <input type="text" class="form-control" formControlName="nom">
+    </div>
+    <div class="form-group">
+      <label>Prenom</label>
+      <input type="text" class="form-control" formControlName="preNom">
+    </div>
+    <div class="form-group">
+      <label>Date Naissance</label>
+      <input type="date" class="form-control" formControlName="dateNaissance">
+    </div>
+    <div class="form-group">
+      <label>Num Tel</label>
+      <input type="text" class="form-control" formControlName="numTel">
+    </div>
+    <div class="form-group">
+      <label>Type Sexe</label>
+      <input type="text" class="form-control" formControlName="typeSexe">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="text" class="form-control" formControlName="pswd">
+    </div>
+    <br>
+    <button class="btn btn-success" (click)="onSavePatient()">Save</button>
+  </form>
+</div>

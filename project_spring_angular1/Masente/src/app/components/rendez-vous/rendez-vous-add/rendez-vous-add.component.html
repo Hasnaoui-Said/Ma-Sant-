@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <h1 class="navbar-brand">Ma santé</h1>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="patientDoctors">Docteurs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rendezVousPatient">Rendez-Vous</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav class="container navbar bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+    <li>
+
+    </li>
+  </ul>
+  <ul class="navbar navbar-nav">
+    <li>
+
+    </li>
+  </ul>
+</nav>
+
+<div class="container" *ngIf='rendezVousFormGroup'>
+  <form [formGroup]='rendezVousFormGroup' method="post">
+    <div class="form-group">
+      <label hidden>idPatient</label>
+      <input hidden type="text" class="form-control" formControlName="patientId">
+    </div>
+    <div class="form-group">
+      <label hidden>idDoctor</label>
+      <input hidden type="text" class="form-control" formControlName="doctorId">
+    </div>
+    <div class="form-group">
+      <label>Date Consultation</label>
+      <input type="date" class="form-control" formControlName="date">
+    </div>
+    <div class="form-group">
+      <label>Date Planification</label>
+      <input type="date" class="form-control" formControlName="datePlanification">
+    </div><br>
+    <button class="btn btn-success" (click)="onSaveRendezVous()">Save</button>
+  </form>
+</div>

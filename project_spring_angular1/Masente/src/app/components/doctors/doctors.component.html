@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <h1 class="navbar-brand">Ma santé</h1>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="doctors">Docteurs</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav class="container navbar bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+    <li>
+      <a href="javascript:onNewDoctor()" (click)="onNewDoctor()">Ajouter Docteur</a>
+    </li>
+  </ul>
+  <ul class="navbar navbar-nav">
+    <li *ngIf='searchForm'>
+      <form class="form-inline" [formGroup]='searchForm'>
+        <div class="input-group">
+          <input type="search" formControlName="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <button type="button" (click)="onSearch()" class="btn btn-outline-primary">search</button>
+        </div>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+<ng-container *ngIf="doctors$ | async as result" [ngSwitch]="result.dataState" >
+  <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+    Loading .....
+  </ng-container>
+
+  <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+    <div class="alert-danger">
+      {{ result.errorMessage }}
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+    <table class="table">
+      <tr>
+        <th hidden>id</th><th>Nom</th><th>Prenom</th><th>Date Naissance</th>
+        <th>Num Tel</th><th>Type Sexe</th><th>Email</th><th>Specialite</th>
+      </tr>
+      <tr *ngFor="let d of result.data">
+        <td hidden>{{d.id}}</td>
+        <td>{{d.nom}}</td>
+        <td>{{d.preNom}}</td>
+        <td>{{d.dateNaissance}}</td>
+        <td>{{d.numTel}}</td>
+        <td>{{d.typeSexe}}</td>
+        <td>{{d.email}}</td>
+        <td>{{d.specialite}}</td>
+        <td>
+          <a href="javascript:onDelete(d)" (click)="onDelete(d)">Supprimer</a>
+          <a href="javascript:onEdit(d)" (click)="onEdit(d)">Modifier</a>
+        </td>
+      </tr>
+    </table>
+  </ng-container>
+</ng-container>
+</div>

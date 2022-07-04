@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <h1 class="navbar-brand">Ma santé</h1>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="doctors">Docteurs</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav class="container navbar bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+    <li></li>
+  </ul>
+  <ul class="navbar navbar-nav">
+    <li></li>
+  </ul>
+</nav>
+
+<div class="container" *ngIf='doctorFormGroup'>
+  <form [formGroup]='doctorFormGroup'>
+    <div class="form-group">
+      <!-- <label>Id</label> -->
+      <input hidden type="text" class="form-control" formControlName="id">
+    </div>
+    <div class="form-group">
+      <label>Nom</label>
+      <input type="text" class="form-control" formControlName="nom"
+             [ngClass]="{'is-invalid':doctorFormGroup.controls['nom'].errors}">
+      <div *ngIf="doctorFormGroup.controls['nom'].errors" class="invalid-feedback">
+        <div *ngIf="doctorFormGroup.controls['nom'].errors['required']">Name is Required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Prenom</label>
+      <input type="text" class="form-control" formControlName="preNom">
+    </div>
+    <div class="form-group">
+      <label>Date Naissance</label>
+      <input type="date" class="form-control" formControlName="dateNaissance">
+    </div>
+    <div class="form-group">
+      <label>Num Tel</label>
+      <input type="text" class="form-control" formControlName="numTel">
+    </div>
+    <div class="form-group">
+      <label>Type Sexe</label>
+      <!--<input type="text" class="form-control" formControlName="typeSexe">-->
+      <div class="form-check">
+        <input class="form-check-input" value="Masculin" type="radio" formControlName="typeSexe" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Masculin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" value="Feminin" type="radio" formControlName="typeSexe" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          Feminin
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label>Specialite</label>
+      <select class="form-select" formControlName="specialite">
+        <option value="specialite1">specialite1</option>
+        <option value="specialite2">specialite2</option>
+        <option value="specialite3">specialite3</option>
+      </select>
+    </div>
+    <br>
+    <button class="btn btn-success" (click)="onUpdateDoctor()">Save</button>
+  </form>
+</div>
